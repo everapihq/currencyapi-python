@@ -1,13 +1,9 @@
-from email.mime import base
-import currencyapi
+import currencyapicom
 import requests
 import json
 import requests.exceptions
-import os.path
-import os
-import errno
 import logging
-import currencyapi.exceptions
+import currencyapicom.exceptions
 
 
 class Client(object):
@@ -24,9 +20,9 @@ class Client(object):
         if api_key:
             self.api_key = api_key
 
-        self.api_base = currencyapi.api_base
+        self.api_base = currencyapicom.api_base
 
-        if currencyapi.debug:
+        if currencyapicom.debug:
             self.debug = True
             logging.basicConfig(level=logging.DEBUG,
                                 format='%(asctime)s %(message)s')
@@ -112,11 +108,11 @@ class Client(object):
                 if 'x-ratelimit-remaining-quota-month' in response.headers:
                     quota = response.headers['x-ratelimit-remaining-quota-month']
                     if int(quota) <= 0:
-                        raise currencyapi.exceptions.QuotaExceeded()
-                    raise currencyapi.exceptions.RateLimitExceeded()
+                        raise currencyapicom.exceptions.QuotaExceeded()
+                    raise currencyapicom.exceptions.RateLimitExceeded()
 
             elif response.status_code == 403:
-                raise currencyapi.exceptions.NotAllowed()
+                raise currencyapicom.exceptions.NotAllowed()
 
             response_obj = json.loads(response.text)
 
@@ -124,7 +120,7 @@ class Client(object):
                 logging.debug(response_obj)
 
             if "errors" in response_obj:
-                raise currencyapi.exceptions.ApiError("API returned errors:", response_obj['errors'])
+                raise currencyapicom.exceptions.ApiError("API returned errors:", response_obj['errors'])
 
             return response_obj
 
