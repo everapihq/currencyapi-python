@@ -6,7 +6,7 @@ CurrencyAPI Python Client is the official Python Wrapper around the CurrencyAPI 
 
 Install from pip:
 ````sh
-pip install currencyapi
+pip install currencyapicom
 ````
 
 Install from code:
@@ -67,7 +67,7 @@ print(result)
 
 ```python
 
-result = client.historical('2022-02-02', '2022-02-04')
+result = client.range('2022-02-02', '2022-02-04')
 print(result)
 
 ```

@@ -8,9 +8,9 @@ with open(path.join(this_directory, 'README.md')) as f:
     long_description = f.read()
 
 setup(
-    name='currencyapi',
+    name='currencyapicom',
     version='0.1',
-    packages=['currencyapi'],
+    packages=['currencyapicom'],
     url='https://github.com/everapihq/currencyapi-python',
     license='MIT',
     author='Everapi',
