@@ -18,11 +18,11 @@ pip install git+https://github.com/everapihq/currencyapi-python.git
 
 All curencyapi API requests are made using the `Client` class. This class must be initialized with your API access key string. [Where is my API access key?](https://app.currencyapi.com/dashboard)
 
-In your Python application, import `currencyapi` and pass authentication information to initialize it:
+In your Python application, import `currencyapicom` and pass authentication information to initialize it:
 
 ````python
-import currencyapi
-client = currencyapi.Client('API_KEY')
+import currencyapicom
+client = currencyapicom.Client('API_KEY')
 ````
 
 ### Retrieve Status
