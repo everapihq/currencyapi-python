@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md')) as f:
 
 setup(
     name='currencyapicom',
-    version='0.1',
+    version='0.1.1',
     packages=['currencyapicom'],
     url='https://github.com/everapihq/currencyapi-python',
     license='MIT',
@@ -34,7 +34,8 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     install_requires=[
-        "requests"
+        "requests",
+        "everapi"
     ],
     long_description=long_description,
     long_description_content_type='text/markdown'
